@@ -132,19 +132,15 @@ with st.container(border=True):
     st.subheader("Key insights")
     st.markdown(
         """
-- **Customer capture:** New customers placed 40.6% of all 2025 orders. The monthly
-  share moved between 36.7% (October) and 45.3% (November) with no steady upward or
-  downward trend; Q2 (42.4%) and Q4 (41.6%) ran higher than Q1 (39.8%) and Q3 (38.8%).
-- **Returns:** New customers are *not* more likely to return items. They returned
-  6.7% of orders (97 of 1,442), compared with 8.7% (183 of 2,106) for returning
-  customers.
+- **Customer capture:** Customer capture over time shows no linear trend, but rather cyclical highs and lows. November had our highest customer capture rate at 45% new customers, with May in second at 44%. 
+- **Returns:** New customers aren't more likely to return items. They returned
+  6.7% of orders, compared with 8.7% for returning
+  customers. It is worth noting that clothing items do have a 5.3% gap between new and returning customers, with new customers returning items 10% of the time compared to returning customers 15.3% of the time. 
 - **Purchase size:** New and returning customers buy almost the same amount. Both have
   a median order of 1 unit and $45; average revenue per order is $73.22 for new
   customers vs. $75.74 for returning customers, and average units are 1.65 vs. 1.66.
-- **Regions:** The West has the highest new-customer share (41.5%) and the Mountain
-  region the lowest (39.6%), a gap of under 2 points. From Q1 to Q4 the Midwest grew its
-  new-customer share the most (37.9% → 43.1%, +5.2 points), followed by the Northeast
-  (+3.5 points); the South was the only region to decline (42.1% → 39.1%).
+- **Regions:** Across regions and product categories, customer growth is relatively similar, with the lowest growth in the Mountain region at 39.6% and the largest in the West region at 41.5%.
+  The electronics product category extends this gap, with mountain at 32.3% and West at 45.2%. Clothing changes the bottom and top growth regions, with the midwest at 33.6% and South at 43.8%. 
 """
     )
     st.caption(
@@ -348,4 +344,45 @@ st.plotly_chart(
 st.caption(
     "Bars: share of each region's orders placed by new customers (%), sorted from "
     "highest (top) to lowest. Dashed line marks all regions combined."
+)
+
+
+# ---------------------------------------------------------------------------
+# AI use disclaimer
+# ---------------------------------------------------------------------------
+st.divider()
+st.subheader("AI use disclaimer")
+st.markdown(
+    """
+**How the AI was prompted.** This dashboard was coded with Claude Code (Anthropic's
+Claude Opus 5.5). The prompt included our project writeup, our hand-drawn wireframe,
+the `online_orders.csv` dataset and the lab requirements. It asked for a Streamlit
+app in our `dataviz` conda environment, committed and pushed as work progressed. It
+also told the AI not to make design decisions on its own and to ask us instead.
+
+**What we created.** We wrote the project writeup (dataset, goal, audience, the four
+key questions and the planned chart for each) and drew the wireframe (sidebar
+filters, KPI row, chart layout). After the first version, we rewrote the key
+insights: we changed the customer-capture takeaway to describe a cyclical pattern,
+and we added the clothing return-rate gap and the product-category breakdowns by
+region. Those numbers were checked against the data.
+
+**How decisions were made.** The AI asked us multiple-choice questions on each open
+design point, and we chose:
+- a sorted bar chart in place of the map, since the data has five regions rather
+  than states
+- share of orders from new customers as the growth measure
+- a monthly time grain for the line chart
+- counting each new-customer order as one new customer, since there are no
+  customer IDs
+- a sidebar Revenue/Units switch shared by the first KPI and the box plot (our own
+  addition to the options offered)
+- return rate (%) for the returns chart
+- blue/orange colors, a month range slider, the dashboard title, and fixed
+  insights placed under the KPIs
+
+The AI wrote the code and drafted the first insights from the full dataset. It also
+handled routine details: Plotly styling, captions, alt text, the empty-filter
+warning, and dropping blank rows (the file has none).
+"""
 )
