@@ -355,20 +355,20 @@ st.subheader("AI use disclaimer")
 st.markdown(
     """
 **How the AI was prompted.** This dashboard was coded with Claude Code (Anthropic's
-Claude Opus 5.5). The prompt included our project writeup, our hand-drawn wireframe,
+Claude Opus 5.5). The prompt included my project writeup, my hand-drawn wireframe,
 the `online_orders.csv` dataset and the lab requirements. It asked for a Streamlit
-app in our `dataviz` conda environment, committed and pushed as work progressed. It
-also told the AI not to make design decisions on its own and to ask us instead.
+app in my `dataviz` conda environment, committed and pushed as work progressed. It
+also told the AI not to make design decisions on its own and to ask me instead.
 
-**What we created.** We wrote the project writeup (dataset, goal, audience, the four
+**What I created.** I wrote the project writeup (dataset, goal, audience, the four
 key questions and the planned chart for each) and drew the wireframe (sidebar
-filters, KPI row, chart layout). After the first version, we rewrote the key
-insights: we changed the customer-capture takeaway to describe a cyclical pattern,
-and we added the clothing return-rate gap and the product-category breakdowns by
+filters, KPI row, chart layout). After the first version, I rewrote the key
+insights: I changed the customer-capture takeaway to describe a cyclical pattern,
+and I added the clothing return-rate gap and the product-category breakdowns by
 region. Those numbers were checked against the data.
 
-**How decisions were made.** The AI asked us multiple-choice questions on each open
-design point, and we chose:
+**How decisions were made.** The AI asked me multiple-choice questions on each open
+design point, and I chose:
 - a sorted bar chart in place of the map, since the data has five regions rather
   than states
 - share of orders from new customers as the growth measure
