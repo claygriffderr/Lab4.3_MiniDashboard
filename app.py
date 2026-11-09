@@ -126,6 +126,33 @@ kpi3.metric("Average rating", f"{filtered['rating_1to5'].mean():.2f} / 5")
 
 
 # ---------------------------------------------------------------------------
+# Insights (fixed text, computed from the full 2025 dataset)
+# ---------------------------------------------------------------------------
+with st.container(border=True):
+    st.subheader("Key insights")
+    st.markdown(
+        """
+- **Customer capture:** New customers placed 40.6% of all 2025 orders. The monthly
+  share moved between 36.7% (October) and 45.3% (November) with no steady upward or
+  downward trend; Q2 (42.4%) and Q4 (41.6%) ran higher than Q1 (39.8%) and Q3 (38.8%).
+- **Returns:** New customers are *not* more likely to return items. They returned
+  6.7% of orders (97 of 1,442), compared with 8.7% (183 of 2,106) for returning
+  customers.
+- **Purchase size:** New and returning customers buy almost the same amount. Both have
+  a median order of 1 unit and $45; average revenue per order is $73.22 for new
+  customers vs. $75.74 for returning customers, and average units are 1.65 vs. 1.66.
+- **Regions:** The West has the highest new-customer share (41.5%) and the Mountain
+  region the lowest (39.6%), a gap of under 2 points. From Q1 to Q4 the Midwest grew its
+  new-customer share the most (37.9% → 43.1%, +5.2 points), followed by the Northeast
+  (+3.5 points); the South was the only region to decline (42.1% → 39.1%).
+"""
+    )
+    st.caption(
+        "These takeaways describe all 2025 orders and do not change with the sidebar filters."
+    )
+
+
+# ---------------------------------------------------------------------------
 # Charts
 # ---------------------------------------------------------------------------
 def style_figure(fig: go.Figure, height: int = 380) -> go.Figure:
